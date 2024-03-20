@@ -12,6 +12,7 @@ import Announcements from "./announcements";
 import Events from "./events";
 import Tos from "./tos";
 import PrivacyPolicy from "./privacypolicy";
+import Redirect from "./redirect";
 
 export const AppContext = createContext(null);
 
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route path="/tos" element={<Tos />}></Route>
             <Route path="/auth" element={<Auth />}></Route>
+            <Route path="/redirect" element={<Redirect/>}></Route>
             <Route path="/privacypolicy" element={<PrivacyPolicy />}></Route>
             <Route element={<AuthenticatedRoute />}>
               <Route path="/" element={<UserHome />}></Route>
