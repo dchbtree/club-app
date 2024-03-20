@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./App";
 import { supabase } from "./utils/supabaseClient";
+import { Link } from "react-router-dom";
 
 const PAGE_SIZE = 5;
 
@@ -97,10 +98,13 @@ export default function Announcements() {
   );
 }
 
-function Announcement({ announcement, club_id }) {
+function Announcement({ announcement, name }) {
   return (
     <div className="space-y-3 bg-base-300 p-3 rounded">
-      <div>{announcement.text}</div>
+      <div className="flex items-start justify-between">
+        <div>{announcement.text}</div>
+        <Link className="btn btn-neutral btn-xs" to={`/club/${announcement.club_id}`}>{name}</Link>
+      </div>
       <div className="flex justify-between items-center">
         <div className="text-xs">
           {new Date(announcement.created_at).toDateString()}
